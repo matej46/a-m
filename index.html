@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>A & M</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="music-controls">
+    <button id="playMusic">▶️ Play</button>
+    <button id="pauseMusic">⏸️ Pause</button>
+    <button id="stopMusic">⏹️ Stop</button>
+    <button id="muteMusic">🔇 Mute</button>
+  </div>
+
+  <div id="intro-overlay">
+    <div class="intro-box">
+      <h2>Среќен роденден љубов моја ❤</h2>
+      <img src="gif/peach-and-goma.gif" alt="Welcome GIF" class="intro-gif">
+      <button id="startBtn">Фала ти љубов најголема те сака најмногу &lt;33333</button>
+    </div>
+  </div>
+
+  <audio id="bg-music" controls></audio>
+  <h1>❤❤❤❤❤</h1>
+  
+  <div class="gallery">
+  </div>
+
+  <div id="lightbox">
+    <span id="close">&times;</span>
+    <span id="prev">&#10094;</span>
+    <img id="lightbox-img" src="" alt="Expanded view" />
+    <span id="next">&#10095;</span>
+    
+    <div id="controls">
+      <button id="pauseBtn">Pause</button>
+      <button id="playBtn" style="display: none;">Play</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
