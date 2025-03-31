@@ -18,7 +18,7 @@ const songs = [
 ];
 
 const imageFilenames = [];
-for (let i = 1; i <= 82; i++) {
+for (let i = 1; i <= 83; i++) {
   imageFilenames.push(`images/photo${i}.jpg`);
 }
 
@@ -44,14 +44,26 @@ function showImage(index) {
     lightboxImg.src = img.src;
     currentIndex = index;
     lightbox.style.display = "flex";
+
+    if (index === galleryImages.length - 1) {
+      restartBtn.style.display = "inline-block"; 
+    } else {
+      restartBtn.style.display = "none"; 
+    }
+
+
     if (isPlaying) startSlideshow();
   }
 }
 
 function startSlideshow() {
-  stopSlideshow();
+  stopSlideshow(); 
   slideshowInterval = setInterval(() => {
-    let nextIndex = (currentIndex + 1) % document.querySelectorAll(".gallery img").length;
+    let nextIndex = currentIndex + 1;
+    if (nextIndex >= document.querySelectorAll(".gallery img").length) {
+      stopSlideshow(); 
+      return;
+    }
     showImage(nextIndex);
   }, 3200);
   isPlaying = true;
@@ -60,6 +72,11 @@ function startSlideshow() {
     playBtn.style.display = "none";
   }
 }
+
+restartBtn.addEventListener("click", () => {
+  showImage(0); 
+  startSlideshow();
+});
 
 function stopSlideshow() {
   clearInterval(slideshowInterval);
